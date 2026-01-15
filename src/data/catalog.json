@@ -1,0 +1,503 @@
+{
+  "categories": [
+    {
+      "id": "programming-languages",
+      "name": "Programming Languages",
+      "slug": "programming-languages",
+      "description": "General-purpose languages for building software.",
+      "subcategories": [
+        {
+          "id": "oop",
+          "name": "OOP",
+          "slug": "oop",
+          "description": "Object-oriented programming languages."
+        },
+        {
+          "id": "fp",
+          "name": "FP",
+          "slug": "fp",
+          "description": "Functional programming languages."
+        },
+        {
+          "id": "multi-paradigm",
+          "name": "Multi-paradigm",
+          "slug": "multi-paradigm",
+          "description": "Languages that mix multiple paradigms."
+        }
+      ]
+    },
+    {
+      "id": "styling-languages",
+      "name": "Styling Languages",
+      "slug": "styling-languages",
+      "description": "Languages used for styling and layout.",
+      "subcategories": [
+        {
+          "id": "core-styles",
+          "name": "Core Styles",
+          "slug": "core-styles",
+          "description": "Foundational styling languages."
+        }
+      ]
+    },
+    {
+      "id": "engines",
+      "name": "Engines",
+      "slug": "engines",
+      "description": "Engines and runtimes for building experiences.",
+      "subcategories": [
+        {
+          "id": "game-engines",
+          "name": "Game Engines",
+          "slug": "game-engines",
+          "description": "Engines focused on game development."
+        }
+      ]
+    },
+    {
+      "id": "design-tools",
+      "name": "Design Tools",
+      "slug": "design-tools",
+      "description": "Software for UI, UX, and visual design.",
+      "subcategories": [
+        {
+          "id": "ui-ux",
+          "name": "UI/UX",
+          "slug": "ui-ux",
+          "description": "User interface and experience design."
+        }
+      ]
+    },
+    {
+      "id": "editors",
+      "name": "Editors",
+      "slug": "editors",
+      "description": "Editors and IDEs for daily work.",
+      "subcategories": [
+        {
+          "id": "general-editors",
+          "name": "General",
+          "slug": "general-editors",
+          "description": "Everyday editors used across stacks."
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "java",
+      "name": "Java",
+      "slug": "java",
+      "categoryId": "programming-languages",
+      "subcategoryId": "oop",
+      "description": "Mature JVM language with huge ecosystem and strong enterprise adoption.",
+      "scores": {
+        "learningCurve": 6,
+        "ecosystem": 9,
+        "jobMarket": 9,
+        "longTermViability": 8,
+        "dx": 7
+      },
+      "level": "Intermediate",
+      "createdAt": "2024-11-01",
+      "updatedAt": "2026-01-10",
+      "whenNotToUse": [
+        "You need ultra-fast iteration with minimal boilerplate.",
+        "Your deployment target has strict memory limits."
+      ],
+      "guides": [
+        {
+          "title": "Project Structure",
+          "content": [
+            "Keep packages aligned with domain boundaries, not tech layers.",
+            "Use modules to keep dependencies explicit."
+          ]
+        },
+        {
+          "title": "Service Layer Patterns",
+          "content": [
+            "Keep services small and focused on orchestration, not data access.",
+            "Use immutable DTOs for clarity across layers."
+          ],
+          "code": {
+            "language": "java",
+            "snippet": "record OrderSummary(String id, int itemCount) {}\n\nclass OrderService {\n  OrderSummary summarize(Order order) {\n    return new OrderSummary(order.id(), order.items().size());\n  }\n}\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "csharp",
+      "name": "C#",
+      "slug": "csharp",
+      "categoryId": "programming-languages",
+      "subcategoryId": "oop",
+      "description": "Modern language with great tooling and strong .NET ecosystem.",
+      "scores": {
+        "learningCurve": 6,
+        "ecosystem": 8,
+        "jobMarket": 8,
+        "longTermViability": 8,
+        "dx": 8
+      },
+      "level": "Intermediate",
+      "createdAt": "2024-12-05",
+      "updatedAt": "2026-01-12",
+      "whenNotToUse": [
+        "You need the smallest possible runtime footprint.",
+        "Your team is not aligned around .NET."
+      ],
+      "guides": [
+        {
+          "title": "Minimal APIs",
+          "content": [
+            "Start with minimal APIs for small services.",
+            "Extract endpoints into dedicated classes as complexity grows."
+          ],
+          "code": {
+            "language": "csharp",
+            "snippet": "var app = WebApplication.CreateBuilder(args).Build();\napp.MapGet(\"/health\", () => Results.Ok(\"ok\"));\napp.Run();\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "kotlin",
+      "name": "Kotlin",
+      "slug": "kotlin",
+      "categoryId": "programming-languages",
+      "subcategoryId": "oop",
+      "description": "Concise JVM language with strong Android and backend support.",
+      "scores": {
+        "learningCurve": 5,
+        "ecosystem": 7,
+        "jobMarket": 7,
+        "longTermViability": 8,
+        "dx": 8
+      },
+      "level": "Intermediate",
+      "createdAt": "2025-01-12",
+      "updatedAt": "2026-01-11",
+      "whenNotToUse": [
+        "Your team only knows legacy Java and has zero Kotlin bandwidth.",
+        "You need ultra-fast cold starts on serverless."
+      ],
+      "guides": [
+        {
+          "title": "Null Safety",
+          "content": [
+            "Use non-null types by default.",
+            "Avoid !! unless you are at the boundary of unsafe data."
+          ],
+          "code": {
+            "language": "kotlin",
+            "snippet": "fun printLength(name: String?) {\n  val safe = name ?: return\n  println(safe.length)\n}\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "haskell",
+      "name": "Haskell",
+      "slug": "haskell",
+      "categoryId": "programming-languages",
+      "subcategoryId": "fp",
+      "description": "Pure functional language focused on correctness and strong types.",
+      "scores": {
+        "learningCurve": 9,
+        "ecosystem": 6,
+        "jobMarket": 4,
+        "longTermViability": 6,
+        "dx": 6
+      },
+      "level": "Advanced",
+      "createdAt": "2024-10-20",
+      "updatedAt": "2026-01-05",
+      "whenNotToUse": [
+        "You need to hire quickly in a broad market.",
+        "Your team cannot invest in FP concepts."
+      ],
+      "guides": [
+        {
+          "title": "Type-Driven Design",
+          "content": [
+            "Let types encode business rules early.",
+            "Prefer explicit domain types over raw primitives."
+          ],
+          "code": {
+            "language": "haskell",
+            "snippet": "newtype Email = Email String\nnewtype UserId = UserId Int\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "elixir",
+      "name": "Elixir",
+      "slug": "elixir",
+      "categoryId": "programming-languages",
+      "subcategoryId": "fp",
+      "description": "Functional language on the BEAM, great for concurrency and reliability.",
+      "scores": {
+        "learningCurve": 7,
+        "ecosystem": 6,
+        "jobMarket": 5,
+        "longTermViability": 7,
+        "dx": 8
+      },
+      "level": "Intermediate",
+      "createdAt": "2024-11-18",
+      "updatedAt": "2026-01-02",
+      "whenNotToUse": [
+        "You need a massive off-the-shelf library ecosystem.",
+        "You are locked into JVM or .NET infrastructure."
+      ],
+      "guides": [
+        {
+          "title": "Concurrency Basics",
+          "content": [
+            "Use lightweight processes for isolation.",
+            "Supervision trees keep systems resilient."
+          ],
+          "code": {
+            "language": "elixir",
+            "snippet": "task = Task.async(fn -> :ok end)\nTask.await(task)\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scala",
+      "name": "Scala",
+      "slug": "scala",
+      "categoryId": "programming-languages",
+      "subcategoryId": "fp",
+      "description": "Powerful JVM language mixing FP and OOP with strong type system.",
+      "scores": {
+        "learningCurve": 8,
+        "ecosystem": 7,
+        "jobMarket": 6,
+        "longTermViability": 7,
+        "dx": 6
+      },
+      "level": "Advanced",
+      "createdAt": "2024-10-10",
+      "updatedAt": "2026-01-03",
+      "whenNotToUse": [
+        "You want a simple language for fast onboarding.",
+        "Your project cannot tolerate slow builds."
+      ],
+      "guides": [
+        {
+          "title": "Functional Core",
+          "content": [
+            "Keep pure logic in functions without side effects.",
+            "Push effects to the edges of the app."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "slug": "python",
+      "categoryId": "programming-languages",
+      "subcategoryId": "multi-paradigm",
+      "description": "Versatile language with huge adoption across data, web, and automation.",
+      "scores": {
+        "learningCurve": 4,
+        "ecosystem": 9,
+        "jobMarket": 9,
+        "longTermViability": 8,
+        "dx": 8
+      },
+      "level": "Beginner",
+      "createdAt": "2024-09-05",
+      "updatedAt": "2026-01-14",
+      "whenNotToUse": [
+        "You need maximum runtime performance.",
+        "You are building low-latency systems without native extensions."
+      ],
+      "guides": [
+        {
+          "title": "Project Layout",
+          "content": [
+            "Keep a single source package folder.",
+            "Use a pyproject file to standardize tooling."
+          ],
+          "code": {
+            "language": "python",
+            "snippet": "src/\n  tools_forum/\n    __init__.py\npyproject.toml\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "slug": "javascript",
+      "categoryId": "programming-languages",
+      "subcategoryId": "multi-paradigm",
+      "description": "Web-first language with massive ecosystem and browser reach.",
+      "scores": {
+        "learningCurve": 5,
+        "ecosystem": 10,
+        "jobMarket": 9,
+        "longTermViability": 8,
+        "dx": 7
+      },
+      "level": "Beginner",
+      "createdAt": "2024-09-18",
+      "updatedAt": "2026-01-09",
+      "whenNotToUse": [
+        "You need strict type guarantees without TypeScript.",
+        "You are building a compute-heavy backend without native help."
+      ],
+      "guides": [
+        {
+          "title": "Modern Tooling",
+          "content": [
+            "Use a formatter and linter from day one.",
+            "Prefer ESM modules for consistency."
+          ],
+          "code": {
+            "language": "javascript",
+            "snippet": "export function sum(a, b) {\n  return a + b;\n}\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "slug": "css",
+      "categoryId": "styling-languages",
+      "subcategoryId": "core-styles",
+      "description": "Core styling language for the web.",
+      "scores": {
+        "learningCurve": 4,
+        "ecosystem": 9,
+        "jobMarket": 8,
+        "longTermViability": 9,
+        "dx": 7
+      },
+      "level": "Beginner",
+      "createdAt": "2024-07-15",
+      "updatedAt": "2026-01-08",
+      "whenNotToUse": [
+        "You need pixel-perfect PDFs without a rendering layer.",
+        "You are targeting environments without a CSS engine."
+      ],
+      "guides": [
+        {
+          "title": "Layout Basics",
+          "content": [
+            "Default to flex or grid for layout.",
+            "Keep spacing on a consistent scale."
+          ],
+          "code": {
+            "language": "css",
+            "snippet": ".stack {\n  display: grid;\n  gap: 1rem;\n}\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "slug": "figma",
+      "categoryId": "design-tools",
+      "subcategoryId": "ui-ux",
+      "description": "Collaborative UI design tool with real-time editing.",
+      "scores": {
+        "learningCurve": 4,
+        "ecosystem": 8,
+        "jobMarket": 7,
+        "longTermViability": 8,
+        "dx": 9
+      },
+      "level": "Beginner",
+      "createdAt": "2024-08-10",
+      "updatedAt": "2026-01-04",
+      "whenNotToUse": [
+        "You need offline-only design workflows.",
+        "Your team relies heavily on native desktop integrations."
+      ],
+      "guides": [
+        {
+          "title": "Design Systems",
+          "content": [
+            "Create reusable components early.",
+            "Name styles and tokens consistently."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unity",
+      "name": "Unity",
+      "slug": "unity",
+      "categoryId": "engines",
+      "subcategoryId": "game-engines",
+      "description": "Cross-platform game engine with a large community.",
+      "scores": {
+        "learningCurve": 7,
+        "ecosystem": 8,
+        "jobMarket": 6,
+        "longTermViability": 7,
+        "dx": 7
+      },
+      "level": "Intermediate",
+      "createdAt": "2024-10-01",
+      "updatedAt": "2026-01-06",
+      "whenNotToUse": [
+        "You need fully open-source engine control.",
+        "Your project targets ultra-small binary sizes."
+      ],
+      "guides": [
+        {
+          "title": "Project Setup",
+          "content": [
+            "Lock editor version per project.",
+            "Use assembly definitions to keep compile times stable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vscode",
+      "name": "VS Code",
+      "slug": "vs-code",
+      "categoryId": "editors",
+      "subcategoryId": "general-editors",
+      "description": "Popular editor with strong extensions and multi-language support.",
+      "scores": {
+        "learningCurve": 3,
+        "ecosystem": 10,
+        "jobMarket": 9,
+        "longTermViability": 9,
+        "dx": 9
+      },
+      "level": "Beginner",
+      "createdAt": "2024-06-20",
+      "updatedAt": "2026-01-07",
+      "whenNotToUse": [
+        "You need a fully offline, no-extension environment.",
+        "Your workflows rely on heavy IDE features only."
+      ],
+      "guides": [
+        {
+          "title": "Workspace Hygiene",
+          "content": [
+            "Keep workspace settings in the repo.",
+            "Use extensions recommendations for team alignment."
+          ],
+          "code": {
+            "language": "json",
+            "snippet": "{\n  \"recommendations\": [\"esbenp.prettier-vscode\"]\n}\n"
+          }
+        }
+      ]
+    }
+  ]
+}
