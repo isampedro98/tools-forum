@@ -2,6 +2,8 @@
 
 GitHub-backed forum for curated, practical guides on tech tools.
 
+Current version: `0.1.0`
+
 ## Vision
 - Open and free knowledge with real-world usefulness.
 - Editorial curation via PRs and issues.
@@ -37,6 +39,13 @@ GitHub-backed forum for curated, practical guides on tech tools.
 pnpm install
 pnpm dev
 ```
+
+## Versioning & Changelog
+- Versioning follows `major.minor.patch`.
+- The major version must remain `0` until we have a real MVP.
+- Every change increments the version (major, minor, or patch).
+- `CHANGELOG.md` groups entries by minor version.
+  - Each minor version should include a brief summary of the patches within that minor.
 
 ## Data Model
 Primary data lives in `src/data/catalog.json`.
