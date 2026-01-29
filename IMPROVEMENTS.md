@@ -41,3 +41,45 @@ Date: 2026-01-28
 - `ScoreService` and `SearchService` could be pure functions or static helpers since they are stateless.
 - Consider a value object for `ToolScores` to encode valid ranges and reduce misuse.
 - Add unit tests for `SearchService` and `ScoreService` (deterministic, low effort).
+
+---
+
+## Product positioning + traction notes (curated)
+### What already feels product-shaped
+- Clear editorial vision: curated, practical, and opinionated, with a fixed "When NOT to use this" section.
+- Explicit content model (Category → Subcategory → Tool) with guides, snippets, and timestamps.
+- Search + sort defined up front (score, date, alphabetical; fuzzy matching).
+- Versioning + changelog discipline from day one (0.1.0).
+
+### Base-rate risk (direct critique)
+- Tool rankings are crowded and often fail because:
+  - Scoring is subjective and easy to attack.
+  - Good content requires ongoing editorial maintenance.
+  - "Forum" dynamics rarely start without critical mass.
+- Your editorial-first approach mitigates this, but you still need a sharper angle to create return visits.
+
+### Directional moves to increase traction (without over-scaling)
+- Position it as a curated handbook rather than a forum for now; keep "community" in GitHub Issues/Discussions.
+- Emphasize decision guidance instead of ranking:
+  - "If you are in X context, pick A; if in Y, pick B."
+- Keep the final score secondary; lead with tradeoffs and "when NOT to use."
+
+### High-ROI technical improvements (fast wins)
+- Add CI schema validation for `catalog.json` (Zod + script) so PRs cannot break the site.
+- Enforce ID/slug uniqueness and referential integrity in CI.
+- Improve search beyond Levenshtein<=2:
+  - Tokenization + prefix match, or use Fuse.js for a better multi-word experience.
+- Consider authoring guides in MDX/Markdown per tool (JSON is not great for long-form writing).
+
+### README messaging (clarity for portfolio / expectations)
+- Add a short "Why this exists" section at the top:
+  - This is a curated, opinionated catalog (not a crowdsourced forum).
+  - Demonstrates structured content modeling and GitHub-based editorial workflow.
+  - Prioritizes decision-oriented documentation over rankings.
+
+### Portfolio signal (cheap and strong)
+- Add a "Design decisions" page/section:
+  - Why no crowd voting.
+  - Why editorial scores.
+  - Why GitHub for workflow.
+  - Why "When NOT to use."
